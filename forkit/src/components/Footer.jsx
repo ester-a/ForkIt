@@ -6,11 +6,12 @@ import { CiShoppingBasket } from "react-icons/ci";
 import { FaRegHeart } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 
-
 export function Footer() {
   return (
-    <footer className="text-black py-20 bg-[#f4e0d5]">
-      <div className="container mx-auto px-20 lg:px-20 py-20 flex flex-col gap-10 md:flex-row justify-between border-t border-white">
+    <footer className="text-black py-20 bg-[#FFFBF5]">
+      
+
+      <div className="mx-auto px-20 lg:px-20 py-20 flex flex-col gap-10 md:flex-row justify-between bg-[#f4e0d5]">
         <div className="flex">
           <p className="font-bold text-center">
             Fork<span className="text-green-800 text-xl">It</span>
@@ -43,8 +44,6 @@ export function Footer() {
             >
               Contact
             </a>
-
-      
           </div>
         </div>
 
@@ -88,52 +87,34 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom Menu - Meal Plan, Groceries, Favorites, Settings */}
-      {/* <div className="flex items-center justify-center py-10 ">
-        <div className="flex gap-8 text-black text-sm md:text-md">
-          <a href="#" className="flex items-center gap-2 hover:text-gray-500">
-            <GiForkKnifeSpoon />
-            Meal Plan
-          </a>
-          <a href="#" className="flex items-center gap-2 hover:text-gray-500">
-            <CiShoppingBasket />
-            Groceries
-          </a>
-          <a href="#" className="flex items-center gap-2 hover:text-gray-500">
-            <FaRegHeart />
-            Favorites
-          </a>
-          <a href="#" className="flex items-center gap-2 hover:text-gray-500">
-            <IoSettingsOutline />
-            Settings
-          </a>
-        </div>
-      </div> */}
+     
 
-<div className="flex items-center justify-center py-10 ">
+
+      {/* Bottom Menu - Meal Plan, Groceries, Favorites, Settings */}
+
+      <div className="flex items-center justify-center py-10 ">
         <div className="flex gap-8 text-black text-sm md:text-md flex-wrap md:flex-nowrap justify-around w-full">
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-center hover:text-gray-500 cursor-pointer">
             <GiForkKnifeSpoon className="text-3xl md:text-xl mb-1 md:mb-0" />
             <span className="text-sm md:text-md">Meal Plan</span>
           </div>
 
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-center hover:text-gray-500 cursor-pointer">
             <CiShoppingBasket className="text-3xl md:text-xl mb-1 md:mb-0" />
             <span className="text-sm md:text-md">Groceries</span>
           </div>
 
-          <div className="flex flex-col items-center text-center">
-            <FaRegHeart className="text-3xl md:text-xl mb-1 md:mb-0" />
+          <div className="flex flex-col items-center text-center hover:text-gray-500 cursor-pointer">
+            <FaRegHeart className="text-3xl md:text-xl mb-1 md:mb-0 " />
             <span className="text-sm md:text-md">Favorites</span>
           </div>
 
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-center hover:text-gray-500 cursor-pointer">
             <IoSettingsOutline className="text-3xl md:text-xl mb-1 md:mb-0" />
             <span className="text-sm md:text-md">Settings</span>
           </div>
         </div>
       </div>
-
 
       <div className="flex items-center justify-center py-10">
         <span className="text-gray-800 leading-10">CodeArtist &copy; 2024</span>

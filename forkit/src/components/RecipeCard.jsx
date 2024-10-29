@@ -2,23 +2,35 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export function RecipeCard({ recipe }) {
-  const { image, label, cuisineType, dietLabel, mealType, uri } = recipe;
-
-  const id = uri?.split("#")[1];
+  // Return null if recipe is undefined
+  if (!recipe) return null;
+  const { image, name, cuisine, category, id, servings, calories_per_portion } = recipe;
 
   return (
     <Link to={`/recipes/${id}`} className='w-full md:w-[220px]'>
-      <div className='bg-_gradient w-full rounded-lg'>
-        <img src={image} alt={label} className='rounded-lg h-[200px] md:h-[150px] w-full' />
+      <div className='w-48 bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer'
+      style={{ 
+        flex: "1 1 200px", 
+        margin: "20px", 
+        height: "350px", 
+        boxSizing: "border-box"
+      }}>
+        <img src={image} alt={name} className='w-full h-32 object-cover' />
+
+        <div className="p-4">
+        <p className="text-gray-500 text-sm">{servings} servings</p>
+        <p className="text-gray-500 text-sm">{calories_per_portion} calories</p>
+      </div>
+    
 
         <div className='p-3'>
-            <p className='text-black font-semibold'>{label}</p>
+            <p className='text-black font-semibold'>{name}</p>
             <div className='mt-2'>
                 <span className='px-2 py-1 text-[12px] capitalize bg-[#94B49F] shadow-xl rounded-full mr-3 text-black'>
-                    {cuisineType}
+                    {cuisine}
                 </span>
                 <span className='px-2 py-1 text-[12px] capitalize bg-[#b7887f] shadow-xl rounded-full text-black'>
-                    {mealType}
+                    {category}
                 </span>
             </div>
         </div>

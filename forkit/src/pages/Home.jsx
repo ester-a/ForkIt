@@ -5,9 +5,9 @@ import Recipes from "../components/Recipes";
 export function Home() {
   return (
     <main className="w-full flex flex-col">
-      <Header title={<p>ForkIt: Where Healthy Meets Tasty!</p>} type="home" />
+      <Header title={<p>ForkIt: Where Healthy Meets Tasty!</p> } type="home" />
 
-      <section id="recipes" className='md:max-w-[1440px] mx-auto px-4 md:px-20'>
+      <section id="recipes" className="md:max-w-[1440px] mx-auto px-4 md:px-20">
         <Recipes />
       </section>
     </main>

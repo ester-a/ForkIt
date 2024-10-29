@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../images/logo.png";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
@@ -8,9 +8,40 @@ import Button from './Button'
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [recipesDropdownOpen, setRecipesDropdownOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [showNavbar, setShowNavbar] = useState(true);
+
+    // Scroll event handler
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY; // tracking scroll position
+  
+      // If scrolling down, hide the navbar
+      if (currentScrollY > scrollY && currentScrollY > 50) {
+        setShowNavbar(false);
+      } else {
+        // If scrolling up, show the navbar
+        setShowNavbar(true);
+      }
+  
+      setScrollY(currentScrollY);
+    };
+  
+    useEffect(() => {
+      // Add scroll event listener
+      window.addEventListener("scroll", handleScroll);
+  
+      return () => {
+        // Clean up the event listener on unmount
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, [scrollY]);
 
   return (
-    <header className="w-full fixed z-10 bg-[#f4e0d5]">
+    <header
+    className={`w-full fixed z-10 bg-[#f4e0d5] transition-transform duration-300 ${ //for a smooth sliding 
+      showNavbar ? "translate-y-0" : "-translate-y-full"
+    }`}
+  >
       <nav className="flex w-full py-2 md:py-3 px-4 md:px-20 items-center justify-between">
         <a
           href="/"
@@ -45,7 +76,7 @@ export function Navbar() {
                   <a href="/recipes/course">By Course</a>
                 </li>
                 <li className="py-2 px-4 hover:bg-gray-100">
-                  <a href="/recipes/protein">By Protein</a>
+                  <a href="/recipes/protein">High Protein</a>
                 </li>
                 <li className="py-2 px-4 hover:bg-gray-100">
                   <a href="/recipes/method">By Method</a>
